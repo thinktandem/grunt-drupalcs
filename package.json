@@ -1,4 +1,4 @@
-  {
+{
   "name": "grunt-drupalcs",
   "description": "Grunt plugin for running PHP Code Sniffer for Drupal",
   "homepage": "https://github.com/thinktandem/grunt-drupalcs",
@@ -18,7 +18,7 @@
   },
   "scripts": {
     "test": "grunt",
-    "postinstall": "node scripts/install.js && bin/phpcs.phar --config-set installed_paths bin/coder_sniffer"
+    "postinstall": "node scripts/install.js && bin/phpcs.phar --config-set installed_paths node_modules/grunt-drupalcs/bin/coder_sniffer"
   },
   "dependencies": {
     "decompress": "^2.2.1",
