@@ -12,7 +12,7 @@ module.exports = function(grunt) {
 
     var path = require('path'),
         exec = require('child_process').exec;
-    
+
     var command = {
             flags: {
                 verbose: 'v',
@@ -23,44 +23,47 @@ module.exports = function(grunt) {
                 report: 'report',
                 reportFile: 'report-file',
                 severity: 'severity',
-                standard: 'standard',
+                standard: 'drupal',
                 warningSeverity: 'warning-severity',
                 tabWidth: 'tab-width'
             }
         },
         defaults = {
-            bin: 'phpcs',
+            bin: 'node_modules/grunt-drupalcs/vendor/.bin/phpcs',
             report: 'full',
             maxBuffer: 200*1024
         },
         done = null;
-    
-    grunt.registerMultiTask('phpcs', 'Run PHP Code Sniffer', function() {
+
+    grunt.registerMultiTask('drupalcs', 'Run Drupal PHP Code Sniffer', function() {
         var done = null,
             parameters = null,
             target = this.target,
             options = this.options(defaults),
             execute = path.normalize(options.bin),
             files = [].concat.apply([], this.files.map(function(mapping) { return mapping.src; })).sort();
-        
+
         // removes duplicate files
-        files = files.filter(function(file, position) { 
+        files = files.filter(function(file, position) {
             return !position || file !== files[position - 1];
         });
-        
+
         // generates parameters
         parameters = Object.keys(options).map(function(option) {
-            return option in command.flags && options[option] === true ? 
-                '-' + command.flags[option] : option in command.options && options[option] !== undefined ? 
+            return option in command.flags && options[option] === true ?
+                '-' + command.flags[option] : option in command.options && options[option] !== undefined ?
                     '--' + command.options[option] + '=' + options[option] : null;
         }).filter(Boolean);
-        
+
+        // hard set an infinite memory limit
+        parameters.push('-d memory_limit=-1');
+
         execute += ' ' + parameters.join(' ') + ' "' + files.join('" "') + '"';
-        
+
         grunt.verbose.writeln('Executing: ' + execute);
-        
+
         done = this.async();
-        
+
         exec(execute, {maxBuffer: options.maxBuffer}, function(error, stdout, stderr) {
             /* jshint -W030 */
             typeof options.callback === 'function' && options.callback.call(this, error, stdout, stderr, done);

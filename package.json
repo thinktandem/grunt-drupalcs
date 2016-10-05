@@ -1,28 +1,24 @@
   {
-  "name": "grunt-phpcs",
-  "description": "Grunt plugin for running PHP Code Sniffer.",
-  "homepage": "https://github.com/SaschaGalley/grunt-phpcs",
+  "name": "grunt-drupalcs",
+  "description": "Grunt plugin for running PHP Code Sniffer for Drupal",
+  "homepage": "https://github.com/thinktandem/grunt-drupalcs",
   "author": {
-    "name": "Sascha Galley",
-    "email": "me@xash.at",
-    "url": "http://xash.at/"
+    "name": "Mike Pirog",
+    "email": "mike@thinktandem.io",
+    "url": "http://thinktandem.io/"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/SaschaGalley/grunt-phpcs.git"
+    "url": "git://github.com/thinktandem/grunt-drupalcs.git"
   },
-  "contributors": [{
-      "name": "James Cryer",
-      "email": "chat@jamescryer.com",
-      "url": "http://www.jamescryer.com/"
-  }],
   "version": "0.4.0",
   "main": "Gruntfile.js",
   "engines": {
     "node": "0.10.x"
   },
   "scripts": {
-    "test": "grunt"
+    "test": "grunt",
+    "postinstall": "scripts/deps.sh"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "^0.11.0",
