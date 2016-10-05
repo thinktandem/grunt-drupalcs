@@ -1,6 +1,8 @@
-# grunt-phpcs
+# grunt-drupalcs
 
-> Grunt plugin for running PHP Code Sniffer.
+> Grunt plugin for running Drupal based PHP Code Sniffer.
+
+This is heavily based on the normal `grunt-phpcs` and is more or less a placeholder until php (via robo?) has better ways to run tasks.
 
 _This plugin is developed for Grunt `0.4.0` and is not tested for backward compatibility with Grunt `0.3.x`._
 
@@ -8,26 +10,24 @@ _This plugin is developed for Grunt `0.4.0` and is not tested for backward compa
 1. Install this grunt plugin with the following command:
 
 	```shell
-	npm install grunt-phpcs --save-dev
+	npm install https://github.com/thinktandem/grunt-drupalcs/tarball/master --save-dev
 	```
-
-2. Install [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer#installation) (preferably with [composer](https://github.com/composer/composer))
 
 3. Add this to your project's `Gruntfile.js` gruntfile:
 
 	```js
-	grunt.loadNpmTasks('grunt-phpcs');
+	grunt.loadNpmTasks('grunt-drupalcs');
 	```
 
-##PHP Code Sniffer task
-_Run this task with the `grunt phpcs` command._
+## Drupal PHP Code Sniffer task
+_Run this task with the `grunt drupalcs` command._
 
 Task targets, files and options may be specified according to the grunt [Configuring tasks](http://gruntjs.com/configuring-tasks) guide.
 
 ###Usage Example
 
 ```js
-phpcs: {
+drupalcs: {
 	application: {
 		src: ['application/classes/*.php', 'application/lib/**/*.php']
 	},
@@ -61,7 +61,7 @@ grunt.initConfig({
 
 ###Options
 ####bin
-Type: `String`  Default: `'phpcs'`
+Type: `String`  Default: `'node_modules/grunt-drupalcs/.bin/phpcs'`
 
 ####maxBuffer
 Type: `Number` Default: `200*1024`
@@ -94,7 +94,7 @@ Type: `Integer` Default: `false`
 The minimum severity required to display an error.
 
 ####standard
-Type: `String`  Default: `false`
+Type: `String`  Default: `drupal`
 
 Define the standard to use.
 

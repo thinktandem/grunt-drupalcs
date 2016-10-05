@@ -23,7 +23,7 @@ module.exports = function(grunt) {
                 report: 'report',
                 reportFile: 'report-file',
                 severity: 'severity',
-                standard: 'drupal',
+                standard: 'standard',
                 warningSeverity: 'warning-severity',
                 tabWidth: 'tab-width'
             }
@@ -31,7 +31,8 @@ module.exports = function(grunt) {
         defaults = {
             bin: 'node_modules/grunt-drupalcs/vendor/.bin/phpcs',
             report: 'full',
-            maxBuffer: 200*1024
+            maxBuffer: 200*1024,
+            standard: 'Drupal'
         },
         done = null;
 
