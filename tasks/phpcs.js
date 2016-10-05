@@ -29,10 +29,10 @@ module.exports = function(grunt) {
             }
         },
         defaults = {
-            bin: 'node_modules/grunt-drupalcs/vendor/.bin/phpcs',
+            bin: 'node_modules/grunt-drupalcs/bin/phpcs.phar',
             report: 'full',
             maxBuffer: 200*1024,
-            standard: 'Drupal'
+            standard: 'drupal'
         },
         done = null;
 

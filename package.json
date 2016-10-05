@@ -18,7 +18,14 @@
   },
   "scripts": {
     "test": "grunt",
-    "postinstall": "scripts/deps.sh"
+    "postinstall": "node scripts/install.js && bin/phpcs.phar --config-set installed_paths bin/coder_sniffer"
+  },
+  "dependencies": {
+    "decompress": "^2.2.1",
+    "download": "^3.3.0",
+    "file-exists": "^0.1.1",
+    "merge": "^1.2.0",
+    "chalk": "~1.0.0"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "^0.11.0",
