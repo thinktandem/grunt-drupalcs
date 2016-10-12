@@ -48,7 +48,7 @@ function download(src, dest) {
 }
 
 // Get the drupal code standards
-var coderUrl = "https://ftp.drupal.org/files/projects/coder-8.x-2.x-dev.tar.gz";
+var coderUrl = "https://ftp.drupal.org/files/projects/coder-8.x-2.9.tar.gz";
 var coderDest = path.resolve(__dirname, '..', 'bin');
 download(coderUrl, coderDest);
 
